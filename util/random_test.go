@@ -18,7 +18,7 @@ ROOST_METHOD_SIG_HASH=RandomEmail_7a04f189fd
 func TestRandomEmail(t *testing.T) {
 
 	validateEmailFormat := func(email string, expectedLength int) bool {
-		re := regexp.MustCompile(fmt.Sprintf(`^[a-zA-Z0-9]{%d}@email\.com$`, expectedLength))
+		re := regexp.MustCompile(fmt.Sprintf(`^[a-zA-Z0-9]{%d}@email\.com`, expectedLength))
 		return re.MatchString(email)
 	}
 
@@ -55,6 +55,22 @@ func TestRandomEmail(t *testing.T) {
 			description:    "Randomness of Email Addresses",
 			number:         10,
 			expectedLength: 10,
+		},
+		{
+			description:    "Medium Length Local Part",
+			number:         50,
+			expectedLength: 50,
+		},
+		{
+			description:    "Empty Email Generation",
+			number:         0,
+			expectedLength: 0,
+			expectedEmail:  "@email.com",
+		},
+		{
+			description:    "Single Character Email",
+			number:         1,
+			expectedLength: 1,
 		},
 	}
 

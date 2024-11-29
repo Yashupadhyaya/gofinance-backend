@@ -72,6 +72,26 @@ func TestRandomEmail(t *testing.T) {
 			number:         1,
 			expectedLength: 1,
 		},
+		{
+			description:    "Short Length Local Part",
+			number:         5,
+			expectedLength: 5,
+		},
+		{
+			description:    "Long Length Local Part",
+			number:         100,
+			expectedLength: 100,
+		},
+		{
+			description:    "Edge Case for Length Just Above Zero",
+			number:         2,
+			expectedLength: 2,
+		},
+		{
+			description:    "Edge Case for Length Just Below Standard",
+			number:         9,
+			expectedLength: 9,
+		},
 	}
 
 	for _, tc := range testCases {

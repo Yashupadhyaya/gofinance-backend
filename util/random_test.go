@@ -135,6 +135,8 @@ func TestRandomString(t *testing.T) {
 		{"Generate Strings with Different Lengths 1", 1, 1},
 		{"Generate Strings with Different Lengths 5", 5, 5},
 		{"Generate Strings with Different Lengths 50", 50, 50},
+		{"Generate Strings with Length 100", 100, 100},
+		{"Generate Strings with Length 500", 500, 500},
 	}
 
 	for _, tt := range tests {
@@ -164,6 +166,24 @@ func TestRandomString(t *testing.T) {
 		for _, char := range result {
 			if !strings.ContainsRune(alphabet, char) {
 				t.Errorf("Character %c is not in the predefined alphabet", char)
+			}
+		}
+	})
+
+	t.Run("Generate Random String and Check for Non-Empty Result", func(t *testing.T) {
+		length := 25
+		result := RandomString(length)
+		if result == "" {
+			t.Errorf("Generated string is empty")
+		}
+	})
+
+	t.Run("Verify Random String Lengths for Multiple Generations", func(t *testing.T) {
+		length := 15
+		for i := 0; i < 50; i++ {
+			result := RandomString(length)
+			if len(result) != length {
+				t.Errorf("RandomString(%d) = %v, want %v", length, len(result), length)
 			}
 		}
 	})

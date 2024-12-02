@@ -1,0 +1,12 @@
+{
+  "/var/tmp/Roost/RoostGPT/go-single-tes-file/1733117723/source/gofinance-backend/util/random_test.go": {
+    "/var/tmp/Roost/RoostGPT/go-single-tes-file/1733117723/source/gofinance-backend/util/randomemail_test.go": {
+      "testMethodHash": "3944d31cf4",
+      "roostMethodHash": "ROOST_METHOD_HASH=RandomEmail_1905439733\nROOST_METHOD_SIG_HASH=RandomEmail_7a04f189fd\n\n"
+    },
+    "/var/tmp/Roost/RoostGPT/go-single-tes-file/1733117723/source/gofinance-backend/util/randomstring_test.go": {
+      "testMethodHash": "f68b7a3417",
+      "roostMethodHash": "ROOST_METHOD_HASH=RandomString_d7e3599ac4\nROOST_METHOD_SIG_HASH=RandomString_c6fe4ad19a\n\n"
+    }
+  }
+}

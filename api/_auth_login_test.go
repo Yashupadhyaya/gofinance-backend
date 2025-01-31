@@ -100,6 +100,8 @@ These scenarios cover a range of potential outcomes for the `login` function, in
 roost_feedback [1/31/2025, 11:08:31 AM]:add some negative scenarios
 
 roost_feedback [1/31/2025, 11:23:28 AM]:add negative scenarios as well
+
+roost_feedback [1/31/2025, 11:30:33 AM]:add some negative scenarios and some comments
 */
 
 // ********RoostGPT********

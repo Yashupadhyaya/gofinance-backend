@@ -98,6 +98,8 @@ Here are several test scenarios for the `login` function, covering different asp
 These scenarios cover a range of potential outcomes for the `login` function, including successful logins, handling of invalid credentials, and various error conditions. By testing these scenarios, you can ensure the robustness and reliability of the login functionality.
 
 roost_feedback [1/31/2025, 11:08:31 AM]:add some negative scenarios
+
+roost_feedback [1/31/2025, 11:23:28 AM]:add negative scenarios as well
 */
 
 // ********RoostGPT********
@@ -150,7 +152,7 @@ type Server struct {
 }
 
 func errorResponse(err error) gin.H {
-	return gin.H{"api has error:": err.Error()}
+	return gin.H{"error": err.Error()}
 }
 
 func (server *Server) login(ctx *gin.Context) {
@@ -199,7 +201,7 @@ func (server *Server) login(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(http.StatusOK, generatedTokenToString)
+	ctx.JSON(http.StatusOK, gin.H{"token": generatedTokenToString})
 }
 
 func TestServerLogin(t *testing.T) {
@@ -288,7 +290,7 @@ func TestServerLogin(t *testing.T) {
 
 			var reqBody []byte
 			if tt.name == "Login with Invalid JSON Request" {
-				reqBody = []byte(`{"username": "invalidjson"`) // Malformed JSON
+				reqBody = []byte(`{"username": "invalidjson"}`) // Malformed JSON
 			} else {
 				reqBody = []byte(`{"username": "` + tt.username + `", "password": "` + tt.password + `"}`)
 			}
